@@ -1,8 +1,17 @@
 <template>
   <v-app id="app">
     <nuxt />
+    <Footer></Footer>
   </v-app>
 </template>
+
+<script>
+import Footer from '@/components/footer/footer.vue'
+export default {
+  components: { Footer },
+}
+</script>
+
 <style scoped>
 #app {
   background: linear-gradient(
