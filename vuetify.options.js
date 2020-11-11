@@ -18,5 +18,9 @@ export default {
       },
     },
   },
-  icons:{},
+  icons:{
+    values: {
+
+    }
+  },
 };
