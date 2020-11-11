@@ -1,6 +1,6 @@
 <template>
   <v-card height="100px">
-    <v-footer v-bind="localAttrs" :padless="padless" >
+    <v-footer >
       <v-card
         flat
         tile
