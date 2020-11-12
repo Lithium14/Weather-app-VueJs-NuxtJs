@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-import { mdiFacebook, mdiGithub, mdiLinkedin} from '@mdi/js'
+import { mdiFacebook, mdiGithub, mdiLinkedin, mdiMapMarker, mdiTwitter} from '@mdi/js'
 export default {
   breakpoint: {
     thresholds:{},
@@ -22,7 +22,9 @@ export default {
     values: {
       'mdi-facebook': mdiFacebook,
       'mdi-github': mdiGithub,
-      'mdi-linkedin': mdiLinkedin
+      'mdi-linkedin': mdiLinkedin,
+      'mdi-mapMarker': mdiMapMarker,
+      'mdi-twitter': mdiTwitter
     }
   },
 };

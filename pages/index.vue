@@ -1,26 +1,30 @@
 <template>
   <v-container>
-    <input />
-    <h1 class="text-center">{{ city }}</h1>
-    <p>Population: {{ weather.city.population}}</p>
+    <h1 class="text-center">Météo</h1>
+      <card :card="weatherData" />
 
   </v-container>
 </template>
 
 <script>
+import card from '@/components/globalInfoCard/card'
+
 export default {
+  components: { card },
   data() {
     return {
-      city : 'Bordeaux',
-      weather: {}
+      country : 'Bordeaux',
+      weatherData: {},
+      lat: 44.8404,
+      lon: -0.5805
     }
   },
   methods: {
     async getWeatherInfo() {
-      await this.$axios.$get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city}&appid=${process.env.weatherApiKey}`)
+      await this.$axios.$get(`https://api.openweathermap.org/data/2.5/forecast?q=${this.country}&appid=${process.env.weatherApiKey}`)
       .then((res) => {
-        this.weather = res
-      console.log(this.weather)})
+        this.weatherData = res
+      console.log(this.weatherData)})
     }
   },
   mounted() {
@@ -30,5 +34,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

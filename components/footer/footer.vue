@@ -1,36 +1,27 @@
 <template>
   <v-card height="100px">
-    <v-footer >
+    <v-footer>
       <v-card
         flat
         tile
         width="100%"
-        class="red lighten-1 text-center"
+        class="text-center"
       >
+        <img src="/rain.jpg" width="500px" height="150px">
         <v-card-text>
-          <v-btn class="mx-4" icon>
-            <v-icon size="24px">
-              $mdi-facebook
-            </v-icon>
-          </v-btn>
 
-          <v-btn class="mx-4" icon>
+          <v-btn class="mx-4" icon href="https://github.com/Lithium14">
             <v-icon size="24px">
               $mdi-github
             </v-icon>
           </v-btn>
 
-          <v-btn class="mx-4" icon>
+          <v-btn class="mx-4" icon href="https://www.linkedin.com/in/fadi-rata/">
             <v-icon size="24px">
               $mdi-linkedin
             </v-icon>
           </v-btn>
 
-          <v-btn class="mx-4" icon>
-            <v-icon size="24px">
-              $mdi-facebook
-            </v-icon>
-          </v-btn>
         </v-card-text>
 
 
