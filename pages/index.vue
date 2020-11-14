@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <h1 class="text-center">Météo</h1>
-      <card :card="weatherData" />
-      <cardDetail :cardDetail="weatherData" />
+    <h1 class="text-center">Weather</h1>
+      <card :card="weatherData"  class="mt-5"/>
+      <cardDetail :cardDetail="weatherData" class="mt-5"/>
   </v-container>
 </template>
 

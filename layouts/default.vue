@@ -22,5 +22,6 @@ export default {
     #b6bbc6,
     #f8f9fb
   );
+  font-family: 'Maven Pro';
 }
 </style>

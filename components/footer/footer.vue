@@ -1,13 +1,13 @@
 <template>
   <v-card height="100px">
-    <v-footer>
+    <v-footer padless>
       <v-card
         flat
         tile
         width="100%"
         class="text-center"
       >
-        <!-- <img src="/rain.jpg" width="500px" height="150px"> -->
+        <img src="/rain.jpg" width="350px" height="100px">
         <v-card-text>
 
           <v-btn class="mx-4" icon href="https://github.com/Lithium14">
