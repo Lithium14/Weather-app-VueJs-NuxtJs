@@ -11,7 +11,7 @@
       </v-col>
 
       <v-col class="col-7 d-flex ma-0">
-        <img :src="switchIconWeather" width="60px" height="60px" class="mr-2 mt-2">
+        <img :src="switchIconWeather" width="60px" height="60px" class="mr-2 mt-3">
         <span id="actually_temp"> {{ Math.round(card.main.temp - 273.15) }}°</span>
       </v-col>
 
@@ -91,9 +91,6 @@ export default {
   border-radius: 20px
 }
 
-/* .col {
-  border: 1px solid red;
-} */
 .info_detail {
   float:right;
   font-size:0.9rem
@@ -101,6 +98,6 @@ export default {
 
 #actually_temp {
   text-align:center;
-  font-size: 3rem
+  font-size: 3.5rem
 }
 </style>
