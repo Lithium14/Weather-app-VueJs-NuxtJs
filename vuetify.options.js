@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-import { mdiFacebook, mdiGithub, mdiLinkedin, mdiMapMarker, mdiTwitter} from '@mdi/js'
+import { mdiFacebook, mdiGithub, mdiLinkedin, mdiMapMarker, mdiTwitter, mdiWeatherSunsetDown, mdiWeatherSunsetUp, mdiWeatherWindy, mdiWaterPercent} from '@mdi/js'
 export default {
   breakpoint: {
     thresholds:{},
@@ -24,7 +24,11 @@ export default {
       'mdi-github': mdiGithub,
       'mdi-linkedin': mdiLinkedin,
       'mdi-mapMarker': mdiMapMarker,
-      'mdi-twitter': mdiTwitter
+      'mdi-twitter': mdiTwitter,
+      'mdi-Weather-Windy': mdiWeatherWindy,
+      'mdi-Weather-Sunset-Down': mdiWeatherSunsetDown,
+      'mdi-Weather-Sunset-Up': mdiWeatherSunsetUp,
+      'mdi-Water-Percent': mdiWaterPercent
     }
   },
 };

@@ -7,7 +7,7 @@
         width="100%"
         class="text-center"
       >
-        <img src="/rain.jpg" width="500px" height="150px">
+        <!-- <img src="/rain.jpg" width="500px" height="150px"> -->
         <v-card-text>
 
           <v-btn class="mx-4" icon href="https://github.com/Lithium14">
