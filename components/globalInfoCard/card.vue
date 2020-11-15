@@ -1,6 +1,7 @@
 <template>
   <div id="global_info" class="elevation-24">
     <v-row class="ma-0">
+
       <v-col class="col-12">
         <v-icon medium class="mb-2">
           $mdi-mapMarker
@@ -36,7 +37,7 @@ export default {
     time() {
       let date1 = new Date();
       let hours = date1.getHours() + ':' +date1.getMinutes();
-      let dateLocale = date1.toLocaleDateString('fr-FR',{
+      let dateLocale = date1.toLocaleDateString(this.$i18n.locale,{
         weekday: 'short',
         month: 'long',
         day: 'numeric',
@@ -88,9 +89,9 @@ export default {
         text = this.$t('global.mist')
       } else if (idWeather > 761 && idWeather < 782) {
         text = this.$t('global.tornado')
-      } else if (idWeather > 600 & idWeather < 630) {
+      } else if (idWeather > 599 & idWeather < 630) {
         text = this.$t('global.snow')
-      } else if (idWeather > 500 & idWeather < 532) {
+      } else if (idWeather > 499 & idWeather < 532) {
         text = this.$t('global.rain')
       } else if (idWeather > 299 && idWeather < 330) {
         text = this.$t('global.shower_rain')

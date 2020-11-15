@@ -4,6 +4,7 @@
       <v-icon @click="displaySearchBar">
         $mdi-Magnify
       </v-icon>
+      <lang />
 
       <search v-if="isAppear" @onsearch-city="onSearchCity"/>
       <card :card="weatherData"  class="mt-5"/>
@@ -15,6 +16,7 @@
 import card from '@/components/globalInfoCard/card'
 import cardDetail from '@/components/detailInfo/card'
 import search from '@/components/search/search'
+import lang from '@/components/lang'
 
 export default {
   components: { card, cardDetail, search },
@@ -30,8 +32,7 @@ export default {
       await this.$axios.$get(`https://api.openweathermap.org/data/2.5/weather?q=${this.country}&appid=${process.env.weatherApiKey}`)
       .then((res) => {
         this.weatherData = res
-        console.log(this.weatherData)
-      return this.weatherData
+        return this.weatherData
       })
     },
     onSearchCity(value) {

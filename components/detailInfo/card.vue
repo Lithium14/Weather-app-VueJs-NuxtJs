@@ -1,6 +1,6 @@
 <template>
   <div id="infobox-detail" class="elevation-24">
-    <!-- <v-row class="ma-0">
+    <v-row class="ma-0">
       <v-col class="col-12">
         <v-icon large color='orange'>
           $mdi-Weather-Sunset-Up
@@ -33,7 +33,7 @@
         <span class="info_detail mt-2"> {{ cardDetail.wind.speed }} m/s </span>
       </v-col>
 
-    </v-row> -->
+    </v-row>
   </div>
 </template>
 
