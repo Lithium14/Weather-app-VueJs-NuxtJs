@@ -3,7 +3,7 @@
     <v-main>
       <nuxt />
     </v-main>
-    <Footer></Footer>
+    <Footer/>
   </v-app>
 </template>
 

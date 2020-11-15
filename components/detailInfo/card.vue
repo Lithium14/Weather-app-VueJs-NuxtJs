@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #infobox-detail{
   border: 2px solid grey;
   border-radius: 20px

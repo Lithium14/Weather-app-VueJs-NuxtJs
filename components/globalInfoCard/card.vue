@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #global_info {
   border: 2px solid grey;
   border-radius: 20px

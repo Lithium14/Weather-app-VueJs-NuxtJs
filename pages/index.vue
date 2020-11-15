@@ -1,6 +1,10 @@
 <template>
   <v-container>
     <h1 class="text-center">Weather</h1>
+    <v-icon>
+      $mdi-Magnify
+    </v-icon>
+      <search @onsearch-city="onSearchCity"/>
       <card :card="weatherData"  class="mt-5"/>
       <cardDetail :cardDetail="weatherData" class="mt-5"/>
   </v-container>
@@ -9,9 +13,10 @@
 <script>
 import card from '@/components/globalInfoCard/card'
 import cardDetail from '@/components/detailInfo/card'
+import search from '@/components/search/search'
 
 export default {
-  components: { card, cardDetail },
+  components: { card, cardDetail, search },
   data() {
     return {
       country : 'Bordeaux',
@@ -26,7 +31,10 @@ export default {
         console.log(this.weatherData)
       return this.weatherData
       })
-
+    },
+    onSearchCity(value) {
+      this.country = value
+      this.getWeatherInfo(this.value)
     }
   },
   mounted() {
