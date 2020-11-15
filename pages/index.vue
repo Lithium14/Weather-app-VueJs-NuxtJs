@@ -1,93 +1,68 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-container>
+    <h1 class="text-center" style="color: Orange">{{ $t('home.weather') }}</h1>
+      <v-col align="right">
+        <v-icon @click="displaySearchBar" large>
+          $mdi-Magnify
+        </v-icon>
+        <lang />
+      </v-col>
+
+      <search v-if="isAppear" @onsearch-city="onSearchCity"/>
+      <v-col class="d-md-flex justify-space-between">
+        <card :card="weatherData"  class="mt-5 col-md-5" />
+        <cardDetail :cardDetail="weatherData" class="mt-5 col-md-5"/>
+      </v-col>
+  </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import card from '@/components/globalInfoCard/card'
+import cardDetail from '@/components/detailInfo/card'
+import search from '@/components/search/search'
+import lang from '@/components/lang'
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo,
+  components: { card, cardDetail, search },
+  data() {
+    return {
+      country : 'Bordeaux',
+      weatherData: {},
+      isAppear: false
+    }
+  },
+  methods: {
+    async getWeatherInfo() {
+      try {
+        await this.$axios.$get(`https://api.openweathermap.org/data/2.5/weather?q=${this.country}&appid=${process.env.weatherApiKey}`)
+        .then((res) => {
+        this.weatherData = res
+        return this.weatherData
+      })
+      } catch (e) {
+        e.message = 'Vous avez mal ortographié la ville saisie, veuillez réessayer !'
+        const message = { notif : e.message, types: 1}
+
+        this.$store.commit('notif/addNotif', message )
+      }
+    },
+    onSearchCity(value) {
+      this.country = value
+      this.getWeatherInfo(this.value)
+    },
+    displaySearchBar() {
+      this.isAppear = true
+    }
+  },
+  mounted() {
+    this.getWeatherInfo();
   },
 }
 </script>
+
+<style scoped>
+.v-col {
+  border: 1px solid red
+}
+</style>
+

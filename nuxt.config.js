@@ -1,4 +1,7 @@
-import colors from 'vuetify/es5/util/colors'
+import fr from './locales/fr.json';
+import en from './locales/en.json';
+
+const locales = ['fr', 'en']
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
@@ -15,6 +18,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  env: {
+    weatherApiKey: '5fd86de924230b9904fe00b8cd701784'
+  },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
@@ -27,32 +33,39 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    'nuxt-i18n'
+  ],
+  i18n: {
+    locales,
+    defaultLocale: 'fr',
+    DetectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true
+    },
+    vueI18n: {
+      fallbackLocale: 'fr',
+      messages: {
+        fr,
+        en
+      }
+    }
+  },
+  axios: {
+    proxy: true
+  },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
+    optionsPath: './vuetify.options.js',
+    defaultAssets: false,
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-      },
-    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

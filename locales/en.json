@@ -1,0 +1,32 @@
+{
+  "detail" : {
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "humidity": "Humidity",
+    "wind": "Wind"
+  },
+  "footer" : {
+    "copyright": "Copyright Ⓒ 2020 Fadi RATA. All Rights Reserved"
+  },
+  "global": {
+    "feels_like":"Feels like",
+    "clear_sky": "Clear sky",
+    "few_clouds": "Few clouds",
+    "tornado":"Tornado",
+    "shower_rain":"Shower rain",
+    "rain": "Rain",
+    "thunderstorm":"Thunderstorm",
+    "snow":"Snow",
+    "mist": "Mist"
+  },
+  "home": {
+    "weather": "W E A T H E R"
+  },
+  "search": {
+    "search" : "SEARCH"
+  },
+  "snackbar": {
+    "close": "Close"
+  }
+
+}
