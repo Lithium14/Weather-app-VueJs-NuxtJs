@@ -22,7 +22,7 @@
         </v-card-text>
         <v-divider></v-divider>
         <v-card-text class="white--text text-center">
-          {{ new Date().getFullYear() }} — <strong>Copyright Ⓒ 2020 Fadi RATA. All Rights Reserved</strong>
+          {{ new Date().getFullYear() }} — <strong>{{ $t('footer.copyright') }}</strong>
         </v-card-text>
       </v-card>
     </v-footer>

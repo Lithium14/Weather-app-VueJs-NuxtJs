@@ -1,10 +1,11 @@
 <template>
   <v-container>
-    <h1 class="text-center">Weather</h1>
-    <v-icon>
-      $mdi-Magnify
-    </v-icon>
-      <search @onsearch-city="onSearchCity"/>
+    <h1 class="text-center">{{ $t('home.weather') }}</h1>
+      <v-icon @click="displaySearchBar">
+        $mdi-Magnify
+      </v-icon>
+
+      <search v-if="isAppear" @onsearch-city="onSearchCity"/>
       <card :card="weatherData"  class="mt-5"/>
       <cardDetail :cardDetail="weatherData" class="mt-5"/>
   </v-container>
@@ -21,6 +22,7 @@ export default {
     return {
       country : 'Bordeaux',
       weatherData: {},
+      isAppear: false
     }
   },
   methods: {
@@ -35,6 +37,9 @@ export default {
     onSearchCity(value) {
       this.country = value
       this.getWeatherInfo(this.value)
+    },
+    displaySearchBar() {
+      this.isAppear = true
     }
   },
   mounted() {

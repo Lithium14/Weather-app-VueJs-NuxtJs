@@ -1,7 +1,6 @@
 <template>
   <div id="global_info" class="elevation-24">
     <v-row class="ma-0">
-
       <v-col class="col-12">
         <v-icon medium class="mb-2">
           $mdi-mapMarker
@@ -18,7 +17,7 @@
       <v-col class="mt-2">
         <span class="info_detail"> {{ firstLetterUpperCaseDescription }} </span><br>
         <span class="info_detail"> {{ Math.round(card.main.temp_max - 273.15) }}° / {{ Math.round(card.main.temp_min - 273.15) }}° </span><br>
-        <span class="info_detail"> Feels like {{ Math.round(card.main.feels_like - 273.15) }}° </span>
+        <span class="info_detail"> {{ $t('global.feels_like') }} {{ Math.round(card.main.feels_like - 273.15) }}° </span>
       </v-col>
 
     </v-row>
@@ -79,8 +78,28 @@ export default {
       return image
     },
     firstLetterUpperCaseDescription() {
-      return (this.card.weather[0].description).charAt(0).toUpperCase() + (this.card.weather[0].description).slice(1);
-    }
+      let text;
+      let idWeather = this.card.weather[0].id
+      if(idWeather > 799 && idWeather < 801) {
+        text = this.$t('global.clear_sky')
+      } else if(idWeather > 800 ) {
+        text =  this.$t('global.few_clouds')
+      } else if (idWeather > 700 && idWeather < 762 ) {
+        text = this.$t('global.mist')
+      } else if (idWeather > 761 && idWeather < 782) {
+        text = this.$t('global.tornado')
+      } else if (idWeather > 600 & idWeather < 630) {
+        text = this.$t('global.snow')
+      } else if (idWeather > 500 & idWeather < 532) {
+        text = this.$t('global.rain')
+      } else if (idWeather > 299 && idWeather < 330) {
+        text = this.$t('global.shower_rain')
+      } else if (idWeather > 199 & idWeather < 235) {
+        text = this.$t('global.thunderstorm')
+      }
+      return text
+    },
+
   }
 }
 </script>

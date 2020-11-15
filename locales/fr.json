@@ -1,0 +1,29 @@
+{
+  "detail" : {
+    "sunrise": "Lever de soleil",
+    "sunset": "Coucher de soleil",
+    "humidity": "Humidité",
+    "wind": "Vent"
+  },
+  "footer" : {
+    "copyright": "Copyright Ⓒ 2020 Fadi RATA. Tous droits réservés"
+  },
+  "global": {
+    "feels_like":"Ressenti",
+    "clear_sky": "Ciel dégagé",
+    "few_clouds": "Nuageux",
+    "tornado":"Tornade",
+    "shower_rain":"Pluie",
+    "rain": "Légère pluie",
+    "thunderstorm":"Orageux",
+    "snow":"Neige",
+    "mist": "Brouillard"
+  },
+  "home": {
+    "weather": "Météo"
+  },
+  "search": {
+    "search" : "RECHERCHER"
+  }
+
+}

@@ -1,11 +1,11 @@
 <template>
   <div id="infobox-detail" class="elevation-24">
-    <v-row class="ma-0">
+    <!-- <v-row class="ma-0">
       <v-col class="col-12">
         <v-icon large color='orange'>
           $mdi-Weather-Sunset-Up
         </v-icon>
-        <span>Sunrise</span>
+        <span>{{ $t('detail.sunrise') }}</span>
         <span class="info_detail mt-2"> {{ sunriseTime }}</span>
       </v-col>
 
@@ -13,7 +13,7 @@
         <v-icon large color='yellow'>
           $mdi-Weather-Sunset-Down
         </v-icon>
-        <span> Sunset </span>
+        <span> {{ $t('detail.sunset') }} </span>
         <span class="info_detail mt-2"> {{ sunsetTime }}</span>
       </v-col>
 
@@ -21,7 +21,7 @@
         <v-icon large color='blue'>
           $mdi-Water-Percent
         </v-icon>
-        <span> Humidity </span>
+        <span> {{ $t('detail.humidity') }} </span>
         <span class="info_detail mt-2"> {{ cardDetail.main.humidity }} %</span>
       </v-col>
 
@@ -29,11 +29,11 @@
         <v-icon large>
           $mdi-Weather-Windy
         </v-icon>
-        <span>Wind</span>
+        <span>{{ $t('detail.wind') }}</span>
         <span class="info_detail mt-2"> {{ cardDetail.wind.speed }} m/s </span>
       </v-col>
 
-    </v-row>
+    </v-row> -->
   </div>
 </template>
 
