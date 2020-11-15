@@ -2,6 +2,7 @@
   <v-app id="app">
     <v-main>
       <nuxt />
+      <Snackbar />
     </v-main>
     <Footer/>
   </v-app>
@@ -9,8 +10,9 @@
 
 <script>
 import Footer from '@/components/footer/footer.vue'
+import Snackbar from '../components/snackbar.vue'
 export default {
-  components: { Footer },
+  components: { Footer, Snackbar },
 }
 </script>
 

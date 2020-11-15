@@ -20,10 +20,13 @@
     "mist": "Brouillard"
   },
   "home": {
-    "weather": "Météo"
+    "weather": "M É T É O"
   },
   "search": {
     "search" : "RECHERCHER"
+  },
+  "snackbar": {
+    "close": "Fermer"
   }
 
 }

@@ -1,13 +1,13 @@
 <template>
   <v-container class="pa-0">
-    <v-footer fluid>
+    <v-footer >
       <v-card
         flat
         tile
         width="100%"
         class="text-center"
       >
-        <img src="/rain.jpg" width="300px" height="100px">
+        <img src="/rain.jpg" :width='resizeImage.imgWidth' :height='resizeImage.imgHeight'>
         <v-card-text class="pa-0">
           <v-btn class="mx-4" icon href="https://github.com/Lithium14">
             <v-icon size="30px">
@@ -28,3 +28,40 @@
     </v-footer>
   </v-container>
 </template>
+<script>
+export default {
+  computed: {
+    resizeImage() {
+      const result = {}
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          result.imgWidth = '150px'
+          result.imgHeight = '150px'
+        case 'sm':
+          result.imgWidth = '350px'
+          result.imgHeight = '150px'
+
+          break
+        case 'md':
+          result.imgWidth = '600px'
+          result.imgHeight = '150px'
+
+          break
+        case 'lg':
+          result.imgWidth = '800px'
+          result.imgHeight = '150px'
+          break
+        case 'xl':
+          result.imgWidth = '800px'
+          result.imgHeight = '150px'
+          break
+      }
+      return {
+        imgWidth: result.imgWidth,
+        imgHeight: result.imgHeight,
+      }
+
+    },
+  }
+}
+</script>

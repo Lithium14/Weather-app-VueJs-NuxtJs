@@ -20,10 +20,13 @@
     "mist": "Mist"
   },
   "home": {
-    "weather": "Weather"
+    "weather": "W E A T H E R"
   },
   "search": {
     "search" : "SEARCH"
+  },
+  "snackbar": {
+    "close": "Close"
   }
 
 }

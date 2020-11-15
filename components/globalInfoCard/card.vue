@@ -1,7 +1,7 @@
 <template>
   <div id="global_info" class="elevation-24">
     <v-row class="ma-0">
-
+      {{this.card.weather[0].icon}}
       <v-col class="col-12">
         <v-icon medium class="mb-2">
           $mdi-mapMarker
@@ -74,7 +74,6 @@ export default {
         case '50d' || '50n':
           image = '/mist.png'
           break
-
       }
       return image
     },

@@ -1,7 +1,7 @@
 <template>
   <v-menu>
     <template v-slot:activator="{ on }">
-      <v-btn dark icon v-on="on">
+      <v-btn icon v-on="on">
         <v-avatar size="35">
           <img :src=" '/lang/' + $i18n.locale + '.png'" alt='lang'>
         </v-avatar>

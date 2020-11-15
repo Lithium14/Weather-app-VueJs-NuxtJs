@@ -8,7 +8,8 @@ import { mdiFacebook, mdiGithub,
 
 export default {
   breakpoint: {
-    thresholds:{},
+    thresholds:{
+    },
   },
   theme: {
     dark: true,

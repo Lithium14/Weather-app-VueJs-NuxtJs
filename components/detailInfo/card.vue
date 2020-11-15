@@ -1,6 +1,7 @@
 <template>
   <div id="infobox-detail" class="elevation-24">
     <v-row class="ma-0">
+
       <v-col class="col-12">
         <v-icon large color='orange'>
           $mdi-Weather-Sunset-Up
@@ -47,14 +48,14 @@ export default {
   },
   computed: {
     sunriseTime() {
-      let date = new Date(this.cardDetail.sys.sunrise * 1000);
-      let time = date.getHours() + ':' + date.getMinutes();
-      return time
+      return new Date(this.cardDetail.sys.sunrise * 1000)
+                    .toLocaleTimeString('fr-Fr')
+                    .slice(0,5)
     },
     sunsetTime() {
-      let date = new Date(this.cardDetail.sys.sunset * 1000);
-      let time = date.getHours() + ':' + date.getMinutes();
-      return time
+      return new Date(this.cardDetail.sys.sunset * 1000)
+                    .toLocaleTimeString('fr-Fr')
+                    .slice(0,5)
     }
   },
 

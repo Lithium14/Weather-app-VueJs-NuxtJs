@@ -1,14 +1,18 @@
 <template>
   <v-container>
-    <h1 class="text-center">{{ $t('home.weather') }}</h1>
-      <v-icon @click="displaySearchBar">
-        $mdi-Magnify
-      </v-icon>
-      <lang />
+    <h1 class="text-center" style="color: Orange">{{ $t('home.weather') }}</h1>
+      <v-col align="right">
+        <v-icon @click="displaySearchBar" large>
+          $mdi-Magnify
+        </v-icon>
+        <lang />
+      </v-col>
 
       <search v-if="isAppear" @onsearch-city="onSearchCity"/>
-      <card :card="weatherData"  class="mt-5"/>
-      <cardDetail :cardDetail="weatherData" class="mt-5"/>
+      <v-col class="d-md-flex justify-space-between">
+        <card :card="weatherData"  class="mt-5 col-md-5" />
+        <cardDetail :cardDetail="weatherData" class="mt-5 col-md-5"/>
+      </v-col>
   </v-container>
 </template>
 
@@ -29,11 +33,18 @@ export default {
   },
   methods: {
     async getWeatherInfo() {
-      await this.$axios.$get(`https://api.openweathermap.org/data/2.5/weather?q=${this.country}&appid=${process.env.weatherApiKey}`)
-      .then((res) => {
+      try {
+        await this.$axios.$get(`https://api.openweathermap.org/data/2.5/weather?q=${this.country}&appid=${process.env.weatherApiKey}`)
+        .then((res) => {
         this.weatherData = res
         return this.weatherData
       })
+      } catch (e) {
+        e.message = 'Vous avez mal ortographié la ville saisie, veuillez réessayer !'
+        const message = { notif : e.message, types: 1}
+
+        this.$store.commit('notif/addNotif', message )
+      }
     },
     onSearchCity(value) {
       this.country = value
@@ -49,7 +60,9 @@ export default {
 }
 </script>
 
-<style>
-
-
+<style scoped>
+.v-col {
+  border: 1px solid red
+}
 </style>
+
